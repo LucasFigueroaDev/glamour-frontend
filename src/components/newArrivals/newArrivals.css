@@ -1,0 +1,90 @@
+/* --- Contenedor Principal (Se mantiene igual) --- */
+.arrivals-section {
+    padding: 60px 40px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.arrivals-title {
+    font-size: 28px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 40px;
+}
+
+/* --- Contenedor del Carrusel --- */
+.carousel-container {
+    margin: 0 40px;
+    /* Añade un margen lateral para que las flechas tengan espacio */
+    padding-bottom: 50px;
+    /* Espacio para los puntos de navegación */
+}
+
+/* El carrusel ya no usa la cuadrícula (products-grid) */
+/* El wrapper es necesario para dar espacio entre las tarjetas en el carrusel */
+.slide-item-wrapper {
+    padding: 0 10px;
+    /* Espacio entre cada tarjeta */
+    /* Asegura que el contenido esté contenido dentro del slide */
+    box-sizing: border-box;
+}
+
+/* --- Tarjeta de Producto (Se mantiene igual) --- */
+.product-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    /* Asegura que todas las tarjetas tengan la misma altura dentro del slide */
+}
+
+/* ... (Resto de estilos de .product-image, .quick-view-btn, .product-name, etc., se mantienen) ... */
+
+
+/* --- Botón "Ver Toda la Colección" (Se mantiene) --- */
+.shop-all-btn {
+    /* ... (Estilos del botón) ... */
+    margin-top: 20px;
+}
+
+/* --- Estilos personalizados para las flechas de slick (Opcional, para que se vean mejor) --- */
+/* Personaliza el color y posición de las flechas si es necesario */
+.slick-prev:before,
+.slick-next:before {
+    color: #333;
+    /* Cambia el color de las flechas a negro */
+    font-size: 30px;
+}
+
+.slick-prev {
+    left: -30px;
+    /* Mueve la flecha izquierda fuera del carrusel */
+}
+
+.slick-next {
+    right: -30px;
+    /* Mueve la flecha derecha fuera del carrusel */
+}
+
+/* Responsividad para Flechas en Móvil */
+@media (max-width: 768px) {
+    .carousel-container {
+        margin: 0;
+    }
+
+    .slick-prev {
+        left: 0px;
+    }
+
+    .slick-next {
+        right: 0px;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 20px;
+        color: #f7a8c4;
+    }
+}

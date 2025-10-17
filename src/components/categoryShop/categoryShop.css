@@ -1,0 +1,113 @@
+/*
+ * Contenedor de la Sección
+ */
+.category-shop-section {
+    padding: 60px 40px;
+    background-color: #ffffff;
+    /* Fondo blanco */
+}
+
+.category-shop-title {
+    font-size: 28px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 30px;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/*
+ * Cuadrícula de Categorías (Grid)
+ */
+.category-grid {
+    display: grid;
+    /* Crea una cuadrícula de 3 columnas en escritorio */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    /* Espacio entre las tarjetas */
+}
+
+/*
+ * Tarjetas Individuales
+ */
+.category-card {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 300px;
+    /* Altura fija para mantener el diseño uniforme */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center;
+    display: flex;
+    /* Para centrar la información */
+    align-items: flex-end;
+    /* Alinea el contenido en la parte inferior */
+    transition: transform 0.4s ease;
+}
+
+/* Oscurece un poco la imagen al pasar el mouse para resaltar el texto */
+.category-card:hover .category-image {
+    transform: scale(1.05);
+}
+
+/*
+ * Información de la Categoría (Texto)
+ */
+.category-info {
+    width: 100%;
+    padding: 15px 20px;
+    /* Fondo semi-transparente para asegurar que el texto sea legible sobre la imagen */
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.category-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.category-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+/*
+ * Responsividad para Móviles y Tablets
+ */
+@media (max-width: 992px) {
+    .category-grid {
+        /* 2 columnas en tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .category-grid {
+        /* 1 columna en móviles */
+        grid-template-columns: 1fr;
+    }
+
+    .category-shop-section {
+        padding: 40px 20px;
+    }
+
+    .category-card {
+        height: 250px;
+    }
+}
