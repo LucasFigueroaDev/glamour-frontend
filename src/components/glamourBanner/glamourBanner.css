@@ -1,18 +1,13 @@
 .glamour-banner-container {
-    /* Fondo suave, similar al de la imagen */
     background: linear-gradient(180deg, #fefefe, #fdf8fb);
-    /* Un gradiente muy sutil */
     padding: 80px 20px;
-    /* Espacio superior e inferior */
     text-align: center;
-    /* Centra todo el contenido */
     max-width: 100%;
 }
 
 .glamour-banner-season {
     font-size: 14px;
     color: #a0a0a0;
-    /* Gris claro */
     letter-spacing: 1px;
     margin-bottom: 5px;
     text-transform: uppercase;
@@ -21,7 +16,6 @@
 .glamour-banner-title {
     font-size: 48px;
     font-weight: 500;
-    /* Un peso de fuente ni muy delgado ni muy grueso */
     color: #333333;
     margin-top: 0;
     margin-bottom: 20px;
@@ -31,15 +25,12 @@
     font-size: 16px;
     color: #666666;
     max-width: 700px;
-    /* Limita el ancho del texto para que no se extienda demasiado */
     margin: 0 auto 30px auto;
-    /* Centra el párrafo y añade margen inferior */
     line-height: 1.6;
 }
 
 .glamour-banner-button {
     background-color: #f7a8c4;
-    /* Un rosa pastel similar al de la imagen */
     color: white;
     border: none;
     padding: 12px 30px;
@@ -49,10 +40,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil */
 }
 
 .glamour-banner-button:hover {
     background-color: #f591b6;
-    /* Un rosa ligeramente más oscuro al pasar el ratón */
 }
