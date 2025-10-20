@@ -1,0 +1,66 @@
+.trust-section {
+    padding: 50px 40px;
+    background-color: white;
+    margin: 40px 0;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trust-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trust-icon {
+    color: #fff;
+    background-color: #333333;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.trust-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.trust-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+    .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .trust-section {
+        padding: 30px 20px;
+    }
+}
