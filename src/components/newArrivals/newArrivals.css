@@ -1,77 +1,173 @@
-/* --- Contenedor Principal (Se mantiene igual) --- */
 .arrivals-section {
-    padding: 60px 40px;
-    background-color: #f8f8f8;
+    padding: 60px 0;
+    background-color: #ffffff;
     text-align: center;
 }
 
 .arrivals-title {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 500;
     color: #333333;
     margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-/* --- Contenedor del Carrusel --- */
 .carousel-container {
-    margin: 0 40px;
-    /* Añade un margen lateral para que las flechas tengan espacio */
-    padding-bottom: 50px;
-    /* Espacio para los puntos de navegación */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px 50px 50px;
 }
 
-/* El carrusel ya no usa la cuadrícula (products-grid) */
-/* El wrapper es necesario para dar espacio entre las tarjetas en el carrusel */
 .slide-item-wrapper {
     padding: 0 10px;
-    /* Espacio entre cada tarjeta */
-    /* Asegura que el contenido esté contenido dentro del slide */
     box-sizing: border-box;
 }
 
-/* --- Tarjeta de Producto (Se mantiene igual) --- */
 .product-card {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fcfcfc;
+    border: 1px solid #eeeeee;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
     height: 100%;
-    /* Asegura que todas las tarjetas tengan la misma altura dentro del slide */
 }
 
-/* ... (Resto de estilos de .product-image, .quick-view-btn, .product-name, etc., se mantienen) ... */
-
-
-/* --- Botón "Ver Toda la Colección" (Se mantiene) --- */
-.shop-all-btn {
-    /* ... (Estilos del botón) ... */
-    margin-top: 20px;
+.product-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Estilos personalizados para las flechas de slick (Opcional, para que se vean mejor) --- */
-/* Personaliza el color y posición de las flechas si es necesario */
-.slick-prev:before,
-.slick-next:before {
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.product-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-content {
+    padding: 10px 5px;
+    text-align: left;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
     color: #333;
-    /* Cambia el color de las flechas a negro */
-    font-size: 30px;
+    margin: 0 0 5px 0;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #e57373;
+    margin: 0 0 15px 0;
+}
+
+.product-content>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.quick-view-btn,
+.add-to-cart-btn {
+    flex-grow: 1;
+    padding: 10px 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.quick-view-btn {
+    background-color: white;
+    color: #333;
+}
+
+.add-to-cart-btn {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e57373;
+    border-color: #e57373;
+}
+
+.quick-view-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.shop-all-btn {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: #333;
+    padding: 12px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.shop-all-btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 1;
+    width: 30px;
+    height: 30px;
 }
 
 .slick-prev {
-    left: -30px;
-    /* Mueve la flecha izquierda fuera del carrusel */
+    left: 15px;
 }
 
 .slick-next {
-    right: -30px;
-    /* Mueve la flecha derecha fuera del carrusel */
+    right: 15px;
 }
 
-/* Responsividad para Flechas en Móvil */
+.slick-prev:before,
+.slick-next:before {
+    color: #333;
+    font-size: 30px;
+}
+
+.slick-dots li button:before {
+    color: #ccc;
+    font-size: 8px;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #e57373;
+}
+
 @media (max-width: 768px) {
+    .arrivals-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
     .carousel-container {
-        margin: 0;
+        padding: 0 10px 40px 10px;
     }
 
     .slick-prev {
@@ -82,9 +178,13 @@
         right: 0px;
     }
 
-    .slick-prev:before,
-    .slick-next:before {
-        font-size: 20px;
-        color: #f7a8c4;
+    .product-image {
+        height: 250px;
+    }
+
+    .quick-view-btn,
+    .add-to-cart-btn {
+        font-size: 11px;
+        padding: 8px 4px;
     }
 }
