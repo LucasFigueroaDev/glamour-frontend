@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './categoryShop.css';
 const url = import.meta.env.VITE_APP_API_URL;
 const CategoryShop = () => {
@@ -27,7 +28,7 @@ const CategoryShop = () => {
     if (loading) {
         return (
             <section className="category-shop-section">
-                <h2 className="category-shop-title">Shop by Category</h2>
+                <h2 className="category-shop-title">Categorias</h2>
                 <div className="category-shop-container">Cargando categorías... </div>
             </section>
         );
@@ -35,27 +36,27 @@ const CategoryShop = () => {
     if (error) {
         return (
             <section className="category-shop-section">
-                <h2 className="category-shop-title">Shop by Category</h2>
+                <h2 className="category-shop-title">Categorias</h2>
                 <div className="category-shop-container error">{error}</div>
             </section>
         );
     }
     return (
         <section className="category-shop-section">
-            <h2 className="category-shop-title">Shop by Category</h2>
+            <h2 className="category-shop-title">Categorias</h2>
             <div className="category-grid">
                 {categories.map((category) => (
-                    <div key={category._id} className="category-card">
-                        <div
-                            className="category-image"
-                            style={{ backgroundImage: `url(${category.image})` }}
-                        >
-                            <div className="category-info">
-                                <h3 className="category-name">{category.name}</h3>
-                                <p className="category-subtitle">{category.description}</p>
+                    <Link key={category._id} to={`/${category.name}/${category._id}`} className="category-card">
+                            <div
+                                className="category-image"
+                                style={{ backgroundImage: `url(${category.image})` }}
+                            >
+                                <div className="category-info">
+                                    <h3 className="category-name">{category.name}</h3>
+                                    <p className="category-subtitle">{category.description}</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </section>

@@ -67,7 +67,7 @@ const NewArrivals = () => {
     if (products.length === 0 && !loading) {
         return (
             <section className="arrivals-section">
-                <h2 className="arrivals-title">New Arrivals</h2>
+                <h2 className="arrivals-title">Novedades</h2>
                 <p className="no-products-message">No hay productos nuevos disponibles en este momento.</p>
             </section>
         );
@@ -75,7 +75,7 @@ const NewArrivals = () => {
 
     return (
         <section className="arrivals-section">
-            <h2 className="arrivals-title">New Arrivals</h2>
+            <h2 className="arrivals-title">Novedades</h2>
             <div className="carousel-container">
                 <Slider {...sliderSettings}>
                     {products.map((product) => (

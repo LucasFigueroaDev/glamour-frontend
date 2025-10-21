@@ -4,14 +4,13 @@ import './glamourBanner.css'; // Importa los estilos
 const GlamourBanner = () => {
     return (
         <div className="glamour-banner-container">
-            <p className="glamour-banner-season">New Season - SS25</p>
+            <p className="glamour-banner-season">Nueva Temporada - 2025</p>
             <h1 className="glamour-banner-title">Glamour</h1>
             <p className="glamour-banner-subtitle">
-                Elevate your wardrobe with curated styles in soft pastels and timeless silhouettes. Discover pieces
-                that blend elegance with everyday comfort.
+                Renueva tu armario con estilos seleccionados y elegantes. Descubre nuestros productos de moda.
             </p>
             <button className="glamour-banner-button">
-                Shop Now
+                Compra Ahora
             </button>
         </div>
     );
