@@ -116,7 +116,7 @@
 .add-to-cart-btn-category {
     flex-grow: 1;
     padding: 10px 5px;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 600;
     cursor: pointer;
     border: 1px solid #ccc;

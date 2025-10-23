@@ -1,4 +1,3 @@
-import React from 'react';
 import './paymentPromoBanner.css';
 
 const PaymentPromoBanner = () => {

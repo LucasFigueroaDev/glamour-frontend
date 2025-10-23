@@ -1,8 +1,7 @@
-import React from 'react';
-import './trustSection.css';
 import { FaTruck } from "react-icons/fa";
 import { MdOutlineChangeCircle,MdOutlineWorkspacePremium } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
+import './trustSection.css';
 const TrustSection = () => {
     const trustFeatures = [
         {

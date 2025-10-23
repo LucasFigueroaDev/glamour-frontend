@@ -25,7 +25,9 @@ const Home = () => {
             <div id="home">
                 <GlamourBanner />
             </div>
-            <CategoryShop />
+            <div id="categorias">
+                <CategoryShop />
+            </div>
             <div id="newArrivals">
                 <NewArrivals />
             </div>

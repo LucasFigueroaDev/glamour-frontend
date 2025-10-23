@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useCartActions } from '../../hooks/cartActions/useCartActions';
 import './allProductsPage.css';
 const url = import.meta.env.VITE_APP_API_URL;
 const totalItems = 12;
 const AllProductsPage = () => {
+    const { addToCart } = useCartActions();
     const [currentPage, setCurrentPage] = useState(1);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -47,6 +50,7 @@ const AllProductsPage = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
+    const handleAddToCart = (product) => { addToCart(product, 1); };
     if (loading) return <div className="allprod-page-container"><h1>Cargando productos...</h1></div>;
     if (error) return (
         <div className="allprod-page-container"><h1 className="allprod-error">{error}</h1></div>
@@ -71,8 +75,8 @@ const AllProductsPage = () => {
                             <h3 className="allprod-name">{product.title}</h3>
                             <p className="allprod-price">${product.price ? product.price.toFixed(2) : 'N/A'}</p>
                             <div>
-                                <button className="allprod-quick-view-btn">Ver detalles</button>
-                                <button className="allprod-add-to-cart-btn">Añadir al Carrito</button>
+                                <Link to={`/producto/${product._id}`} className="allprod-quick-view-btn">Ver detalles</Link>
+                                <button className="allprod-add-to-cart-btn" onClick={() => handleAddToCart(product)} disabled={product.stock === 0}>Añadir al Carrito</button>
                             </div>
                         </div>
                     </div>

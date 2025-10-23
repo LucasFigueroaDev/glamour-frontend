@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useCartActions } from '../../hooks/cartActions/useCartActions';
 import Slider from 'react-slick';
 import './newArrivals.css';
 const url = import.meta.env.VITE_APP_API_URL;
@@ -8,7 +9,7 @@ const NewArrivals = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const { addToCart } = useCartActions();
     // Configuración del carrusel (Settings)
     const sliderSettings = {
         dots: true,        // Muestra los puntos de navegación
@@ -62,7 +63,7 @@ const NewArrivals = () => {
 
         fetchNewArrivals();
     }, []);
-
+    const handleAddToCart = (product) => { addToCart(product, 1); };
     if (loading) return <div className="arrivals-section-container">Cargando novedades...</div>;
     if (error) return <div className="arrivals-section-container error">{error}</div>;
 
@@ -90,8 +91,8 @@ const NewArrivals = () => {
                                     <h3 className="product-name">{product.title}</h3>
                                     <p className="product-price">${product.price ? product.price.toFixed(2) : 'N/A'}</p>
                                     <div>
-                                        <button className="quick-view-btn">Ver detalles</button>
-                                        <button className="add-to-cart-btn">Añadir al Carrito</button>
+                                        <Link to={`/producto/${product._id}`} className="quick-view-btn">Ver detalles</Link>
+                                        <button className="add-to-cart-btn" onClick={() => handleAddToCart(product)} disabled={product.stock === 0}>Añadir al Carrito</button>
                                     </div>
                                 </div>
                             </div>
