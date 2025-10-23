@@ -1,7 +1,10 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { BsCart4 } from "react-icons/bs";
 import './navbars.css'
 const NavBars = () => {
+    const totalItemsInCart = useSelector(state => state.cart.totalQuantity);
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
     return (
@@ -19,7 +22,7 @@ const NavBars = () => {
                 <li className="navbar-item"><Link to="/#newArrivals" className="navbar-link">Novedades</Link></li>
                 <li className="navbar-item"><Link to="/search" className="navbar-link">Buscar</Link></li>
                 <li className="navbar-item"><Link to="/login" className="navbar-link">Login</Link></li>
-                <li className="navbar-item"><Link to="/cart" className='navbar-link'>🛒<span>0</span></Link></li>
+                <li className="navbar-item"><Link to="/cart" className='navbar-link'><BsCart4 />{totalItemsInCart > 0 && (<span>{totalItemsInCart}</span>)}</Link></li>
             </ul>
         </nav>
     )
