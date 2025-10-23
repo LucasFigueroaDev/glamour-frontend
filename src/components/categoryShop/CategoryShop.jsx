@@ -16,6 +16,7 @@ const CategoryShop = () => {
                 const categoriesResponse = responseData.data.payload;
                 setCategories(categoriesResponse);
             } catch (e) {
+                console.error('Error al obtener las categorías:', e);
                 setError("No se pudieron cargar las categorías. Por favor, inténtelo más tarde.");
             } finally {
                 setLoading(false);
@@ -46,7 +47,7 @@ const CategoryShop = () => {
             <h2 className="category-shop-title">Categorias</h2>
             <div className="category-grid">
                 {categories.map((category) => (
-                    <Link key={category._id} to={`/${category.name}/${category._id}`} className="category-card">
+                    <Link key={category._id} to={`/categoria/${category.name}/${category._id}`} className="category-card">
                             <div
                                 className="category-image"
                                 style={{ backgroundImage: `url(${category.image})` }}

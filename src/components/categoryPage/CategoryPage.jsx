@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './categoryPage.css';
-const API_BASE_URL = import.meta.env.VITE_APP_API_URL;
+const url = import.meta.env.VITE_APP_API_URL;
 
 const CategoryPage = () => {
     const { categoryName, categoryId } = useParams();
@@ -14,12 +14,13 @@ const CategoryPage = () => {
         console.log(categoryId);
         const fetchCategoryData = async () => {
             try {
-                const endpoint = `${API_BASE_URL}/api/products/category/${categoryId}`;
+                const endpoint = `${url}/api/products/category/${categoryId}`;
                 const response = await fetch(endpoint);
                 if (!response.ok) { throw new Error(`Error al cargar la categoría: ${response.status}`); }
                 const responseData = await response.json();
                 setProducts(responseData.data.payload || []);
             } catch (e) {
+                console.error('Error al obtener los productos de la categoría:', e);
                 setError(`No se pudieron cargar los productos de la categoría con ID: ${categoryId}`);
             } finally {
                 setLoading(false);

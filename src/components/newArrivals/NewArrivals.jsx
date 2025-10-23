@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import './newArrivals.css';
 const url = import.meta.env.VITE_APP_API_URL;
@@ -52,7 +53,8 @@ const NewArrivals = () => {
                     setProducts([]);
                 }
             } catch (e) {
-                setError("No se pudieron cargar las novedades. Inténtalo más tarde." + e.message);
+                console.error('Error al obtener las novedades:', e);
+                setError("No se pudieron cargar las novedades. Inténtalo más tarde.");
             } finally {
                 setLoading(false);
             }
@@ -98,7 +100,7 @@ const NewArrivals = () => {
                 </Slider>
             </div>
 
-            <button className="shop-all-btn">Ver Toda la Colección</button>
+            <Link to="/productos" className="shop-all-btn">Ver Toda la Colección</Link>
         </section>
     );
 };
