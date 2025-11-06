@@ -8,6 +8,7 @@ import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import AllProductsPage from "./components/allProductsPage/AllProductsPage";
 import ProductDetailPage from "./components/productDetail/ProductDetailPage";
 import CartPage from "./components/cartPage/CartPage";
+import SearchPage from "./components/searchPage/SearchPage";
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/productos" element={<AllProductsPage />} />
         <Route path="/producto/:productId" element={<ProductDetailPage />} />
         <Route path="/categoria/:categoryName/:categoryId" element={<CategoryPage />} />
+        <Route path="/search/" element={<SearchPage />} />
         <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />

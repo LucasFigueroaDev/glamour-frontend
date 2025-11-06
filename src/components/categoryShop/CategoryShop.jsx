@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './categoryShop.css';
 const url = import.meta.env.VITE_APP_API_URL;
+
 const CategoryShop = () => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
