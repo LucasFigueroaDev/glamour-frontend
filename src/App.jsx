@@ -9,6 +9,9 @@ import AllProductsPage from "./components/allProductsPage/AllProductsPage";
 import ProductDetailPage from "./components/productDetail/ProductDetailPage";
 import CartPage from "./components/cartPage/CartPage";
 import SearchPage from "./components/searchPage/SearchPage";
+import LoginPage from "./components/loginPage/LoginPage";
+import RegisterPage from "./components/registerPage/RegisterPage";
+import ForgotPasswordPage from "./components/forgotPasswordPage/ForgotPasswordPage";
 import './App.css'
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
         <Route path="/categoria/:categoryName/:categoryId" element={<CategoryPage />} />
         <Route path="/search/" element={<SearchPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

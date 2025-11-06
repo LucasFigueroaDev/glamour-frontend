@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { loadState, saveCartState } from "../utils/localStoragePersistence";
 import cartReducer from "./cartSlice/cartSlice";
+import userReducer from "./userSlice/userSlice";
 
 const localStorageMiddleware =({getState}) => {
     return (next) => (action) => {
@@ -20,6 +21,7 @@ const preloadedState = loadState();
 export const store = configureStore({
     reducer: {
         cart: cartReducer,
+        user: userReducer
     },
     preloadedState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(localStorageMiddleware),
