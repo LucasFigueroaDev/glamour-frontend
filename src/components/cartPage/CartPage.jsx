@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, clearCart } from '../../redux/cartSlice/cartSlice.js';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import './cartPage.css';
 
 const CartPage = () => {
@@ -11,9 +12,29 @@ const CartPage = () => {
         dispatch(removeItem(productId));
     };
     const handleClearCart = () => {
-        if (window.confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
-            dispatch(clearCart());
-        }
+        Swal.fire({
+            title: '¿Vaciar carrito?',
+            text: 'Esta acción eliminará todos los productos del carrito.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, vaciar',
+            cancelButtonText: 'Cancelar',
+            background: '#fff',
+            color: '#333',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(clearCart());
+                Swal.fire({
+                    title: 'Carrito vacío',
+                    text: 'Todos los productos fueron eliminados.',
+                    icon: 'success',
+                    timer: 1500,
+                    showConfirmButton: false,
+                });
+            }
+        });
     };
     if (cart.items.length === 0) {
         return (
